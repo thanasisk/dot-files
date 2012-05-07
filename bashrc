@@ -101,7 +101,7 @@ alias la='ls -A'
 alias l='ls -CF'
 # custom aliases
 alias g='git'
-alias ruby='ruby1.9.1'
+#alias ruby='ruby1.9.1'
 alias svim='sudo vim'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
