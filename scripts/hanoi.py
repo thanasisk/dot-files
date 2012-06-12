@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# done to share with a friend and demonstrate how python code is compact
+
 def move(n, startPole, endPole):
     if n == 0:
         return
