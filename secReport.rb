@@ -3,6 +3,7 @@
 # based on debsecan(1)
 # this is extremely slow btw - need to optimize it 
 # 6 calls to debsecan? insane!!!
+
 $COMMAND = "debsecan --suite squeeze"
 high 	= `#{$COMMAND} |grep high |wc -l`
 highr	= `#{$COMMAND} |grep high |grep remotely |wc -l`
@@ -11,6 +12,6 @@ mediumr	= `#{$COMMAND} |grep medium |grep remotely |wc -l`
 low 	= `#{$COMMAND} |grep low |wc -l`
 lowr	= `#{$COMMAND} |grep lowr |grep remotely |wc -l`
 
-puts "#{high.chomp} high risk vulnerabilities of which #{highr.chomp} remote"
-puts "#{medium.chomp} medium risk vulnerabilities of which #{mediumr.chomp} remote"
-puts "#{low.chomp}  low risk vulnerabilities of which #{lowr.chomp} remote"
+puts "#{high.chomp} HIGH risk vulnerabilities of which #{highr.chomp} remote"
+puts "#{medium.chomp} MEDIUM risk vulnerabilities of which #{mediumr.chomp} remote"
+puts "#{low.chomp} LOW risk vulnerabilities of which #{lowr.chomp} remote"
