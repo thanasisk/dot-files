@@ -1,17 +1,18 @@
 #!/usr/bin/env ruby
 # a quick script to generate statistics on a debian system
 # based on debsecan(1)
-# this is extremely slow btw - need to optimize it 
 # 6 calls to debsecan? insane!!!
+# this is why we call once and let Ruby do the rest
 
 $COMMAND = "debsecan --suite squeeze"
-high 	= `#{$COMMAND} |grep high |wc -l`
-highr	= `#{$COMMAND} |grep high |grep remotely |wc -l`
-medium 	= `#{$COMMAND} |grep medium |wc -l`
-mediumr	= `#{$COMMAND} |grep medium |grep remotely |wc -l`
-low 	= `#{$COMMAND} |grep low |wc -l`
-lowr	= `#{$COMMAND} |grep lowr |grep remotely |wc -l`
+output = `#{$COMMAND}`
+high = output.grep(/high/).length
+highr = output.grep(/high/).grep(/remotely/).length
+medium = output.grep(/medium/).length
+mediumr = output.grep(/medium/).grep(/remotely/).length
+low = output.grep(/low/).length
+lowr = output.grep(/low/).grep(/remotely/).length 
 
-puts "#{high.chomp} HIGH risk vulnerabilities of which #{highr.chomp} remote"
-puts "#{medium.chomp} MEDIUM risk vulnerabilities of which #{mediumr.chomp} remote"
-puts "#{low.chomp} LOW risk vulnerabilities of which #{lowr.chomp} remote"
+puts "#{high} HIGH risk vulnerabilities of which #{highr} remote"
+puts "#{medium} MEDIUM risk vulnerabilities of which #{mediumr} remote"
+puts "#{low} LOW risk vulnerabilities of which #{lowr} remote"
