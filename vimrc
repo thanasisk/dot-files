@@ -1,21 +1,8 @@
 set nocompatible
 filetype indent plugin on | syn on
+execute pathogen#infect()
 set hidden
 
-" let's copy paste some lines from documentation
-fun SetupVAM()
-let addons_base = expand('$HOME') . '/vim-addons'
-exec 'set runtimepath+='.addons_base.'/vim-addon-manager'
-
-if !isdirectory(addons_base)
-	exec '!p='.shellescape(addons_base).'; mkdir -p "$p" && cd "$p" && 	git clone git://github.com/MarcWeber/vim-addon-manager.git'
-endif
-
-	" call vam#ActivateAddons([])
-	"call vam#ActivateAddons(['vim-addon-local-vimrc','snipmate-snippets','vim-addon-actions','reload','web-indent','vim-addon-sql','FuzzyFinder','syntastic2'],{'auto_install' : 0})
-endf
-call SetupVAM()
-noremap \ft :exec 'e ~/.vim/after/ftplugin/'.&filetype.'.vim'<cr>
 syntax on
 set background=dark
 set ruler                     " show the line number on the bar
@@ -32,6 +19,7 @@ set smartindent
 set tabstop=4 "“set tab character to 4 characters
 set expandtab "“turn tabs into whitespace
 set shiftwidth=4 "“indent width for autoindent
+set cc=80
 nmap <F11> 1G=G
 imap <F11> <ESC>1G=Ga
 
@@ -39,7 +27,20 @@ set incsearch
 set ignorecase
 set smartcase
 
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+" first one is mine ...
+"set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)]
+" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
+set statusline=   " clear the statusline for when vimrc is reloaded
+set statusline+=%-3.3n\                      " buffer number
+set statusline+=%f\                          " file name
+set statusline+=%h%m%r%w                     " flags
+set statusline+=[%{strlen(&ft)?&ft:'none'},  " filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc}, " encoding
+set statusline+=%{&fileformat}]              " file format
+set statusline+=%=                           " right align
+set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')}\  " highlight
+set statusline+=%b,0x%-8B\                   " current char
+set statusline+=%-14.(%l,%c%V%)\ %<%P        " offset
 
 set scrolloff=5               " keep at least 5 lines above/below
 set sidescrolloff=5           " keep at least 5 lines left/right
@@ -87,4 +88,7 @@ endif
 nmap <LocalLeader>tl :set list!<cr>
 " toggle paste mode
 nmap <LocalLeader>pp :set paste!<cr>
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
