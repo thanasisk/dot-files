@@ -10,7 +10,7 @@ fi
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
-export PATH
+export PATH=$PATH:/usr/local/go/bin:/usr/local/packer
 
 # put timestamps in my bash history
 export HISTTIMEFORMAT='%F %T '
@@ -40,3 +40,8 @@ alias grep='grep --color=auto'
 # shortcut aliases for the grep command with different behaviors
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+# if we have colored prompt for git, let's enable it
+if [ -d ".bash-git-prompt" ]; then
+    source .bash-git-prompt/gitprompt.sh
+fi
+
