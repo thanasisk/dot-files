@@ -99,4 +99,11 @@ fi
 # Golang
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/code/go
+# history customization
+# don't put duplicate commands into the history
+export HISTCONTROL=ignoredups
+# record only the most recent duplicated command (see above)
+export HISTCONTROL=ignoreboth
+# don't record these commands in the history; who cares about ls?
+export HISTIGNORE='pwd:ls:lh:la:ll:history:'
 
