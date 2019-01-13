@@ -11,3 +11,7 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 mkdir ~/.vim_backup
 ```
 
+### one step vim setup
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/thanasisk/dot-files/master/installVimPlugins.sh)"
+```
