@@ -21,3 +21,10 @@ fi
 mkdir -p $HOME/.vim/autoload
 mkdir -p $HOME/.vim/bundle
 curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+# the rest require git ...
+if ! [ -x "$(command -v git)" ]; then
+    echo "needs git to install plugins"
+    exit 127
+fi
+git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+git clone https://github.com/hashivim/vim-terraform.git ~/.vim/bundle/vim-terraform
