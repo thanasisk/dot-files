@@ -91,4 +91,4 @@ nmap <LocalLeader>pp :set paste!<cr>
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
+map <F2> :NERDTreeToggle<CR>
