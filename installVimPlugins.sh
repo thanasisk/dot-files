@@ -26,5 +26,15 @@ if ! [ -x "$(command -v git)" ]; then
     echo "needs git to install plugins"
     exit 127
 fi
-git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
-git clone https://github.com/hashivim/vim-terraform.git ~/.vim/bundle/vim-terraform
+# some kung-fu is needed to avoid duplication of code but now is late ...
+if [ ! -e ~/.vim/bundle/vim-go ]; then
+    git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+fi
+
+if [ ! -e ~/.vim/bundle/vim-terraform ]; then
+    git clone https://github.com/hashivim/vim-terraform.git ~/.vim/bundle/vim-terraform
+fi
+
+if [ ! -e ~/.vim/bundle/nerdtree ]; then
+    git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+fi
