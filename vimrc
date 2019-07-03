@@ -92,3 +92,5 @@ nmap <LocalLeader>pp :set paste!<cr>
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 map <F2> :NERDTreeToggle<CR>
+" Rust goodness
+let g:rustfmt_autosave = 1

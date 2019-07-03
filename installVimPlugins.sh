@@ -38,3 +38,8 @@ fi
 if [ ! -e ~/.vim/bundle/nerdtree ]; then
     git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
 fi
+
+# I am becoming a Rust freak?!?
+if [ ! -e ~/.vim/bundle/rust.vim ]; then
+    git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
+fi
