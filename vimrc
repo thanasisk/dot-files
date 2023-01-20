@@ -94,3 +94,4 @@ match ExtraWhitespace /\s\+$/
 map <F2> :NERDTreeToggle<CR>
 " Rust goodness
 let g:rustfmt_autosave = 1
+nmap <F3> :TagbarToggle<CR>

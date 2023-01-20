@@ -43,6 +43,13 @@ fi
 if [ ! -e ~/.vim/bundle/rust.vim ]; then
     git clone --depth=1 https://github.com/rust-lang/rust.vim.git ~/.vim/bundle/rust.vim
 fi
+
+
+# tagbar
+if [ ! -e ~/.vim/bundle/tagbar ]; then
+    git clone https://github.com/preservim/tagbar.git
+fi
+
 # OCaml?!? Am I really losing it?
 if [ ! -e ~/,vim/bundle/vim-ocaml ]; then
     git clone https://github.com/ocaml/vim-ocaml.git
