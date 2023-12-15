@@ -1,0 +1,13 @@
+Host spioynos
+    User root
+    Hostname 666.666.666.666
+    ControlMaster    auto
+    ControlPath      ~/.ssh/%r@%h:%p.sock
+    ControlPersist   yes
+
+Host *
+    Compression yes
+    ServerAliveInterval 5
+    ServerAliveCountMax 1
+    VisualHostKey yes
+    PasswordAuthentication no
