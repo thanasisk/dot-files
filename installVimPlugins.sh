@@ -47,7 +47,7 @@ fi
 
 # tagbar
 if [ ! -e ~/.vim/bundle/tagbar ]; then
-    git clone https://github.com/preservim/tagbar.git ~/.vim/
+    git clone https://github.com/preservim/tagbar.git ~/.vim/tagbar
 fi
 
 # Currently not doing much Ocaml 
