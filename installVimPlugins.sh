@@ -47,10 +47,10 @@ fi
 
 # tagbar
 if [ ! -e ~/.vim/bundle/tagbar ]; then
-    git clone https://github.com/preservim/tagbar.git
+    git clone https://github.com/preservim/tagbar.git ~/.vim/
 fi
 
-# OCaml?!? Am I really losing it?
-if [ ! -e ~/,vim/bundle/vim-ocaml ]; then
-    git clone https://github.com/ocaml/vim-ocaml.git
-fi
+# Currently not doing much Ocaml 
+# if [ ! -e ~/,vim/bundle/vim-ocaml ]; then
+#    git clone https://github.com/ocaml/vim-ocaml.git ~/.vim/
+# fi
