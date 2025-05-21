@@ -106,4 +106,27 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 # don't record these commands in the history; who cares about ls?
 export HISTIGNORE='pwd:ls:lh:la:ll:history:'
+function epub2pdf {
+    epub=$1
+    ebook-convert "$epub" "${epub%.epub}.pdf"
+}
+# warez oriented functions
+function pdf2screen {
+    gs -sDEVICE=pdfwrite -dNOPAUSE -dQUIET -dBATCH -dPDFSETTINGS=/${3:-"screen"} -dCompatibilityLevel=1.4 -sOutputFile="${1%.pdf}"_screen.pdf "$1"
+}
+function webm2mp4 {
+    ffmpeg -i "$1" -codec copy "${1%.webm}".mp4
+}
+function mp42mp3 {
+    ffmpeg -i "$1" -vn -q:a 0 -map a "${1%.mp4}".mp3
+}
+function webm2mp3 {
+    ffmpeg -i "$1" -vn -q:a 0 -map a "${1%.webm}".mp3
+}
+function mp42wav {
+    ffmpeg -i "$1" -vn -q:a 0 -map a "${1%.mp4}".wav
+}
+function webm2wav {
+    ffmpeg -i "$1" -vn -q:a 0 -map a "${1%.webm}".wav
+}
 
